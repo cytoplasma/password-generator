@@ -1,4 +1,4 @@
-// Assignment code here
+// Array of special characters to be included in password
 var specialCharacters = [
   '@',
   '%',
@@ -25,8 +25,10 @@ var specialCharacters = [
   '.',
 ];
 
+// Array of numeric characters to be included in password
 var numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
+// Array of lowercase characters to be included in password
 var lowerCase = [
   'a',
   'b',
@@ -56,6 +58,7 @@ var lowerCase = [
   'z',
 ];
 
+// Array of uppercase characters to be included in password
 var upperCase = [
   'A',
   'B',
@@ -110,23 +113,22 @@ function getPasswordOptions() {
     'Click OK to confirm including special characters.'
   );
 
-  var hasNumbers = confirm(
+  var hasnumbers = confirm(
     'Click OK to confirm including numeric characters.'
   );
 
-  var hasLowerCase = confirm(
+  var haslowerCase = confirm(
     'Click OK to confirm including lowercase characters.'
   );
 
-  var hasUpperCase = confirm(
+  var hasupperCase = confirm(
     'Click OK to confirm including uppercase characters.'
   );
-
   if (
     hasSpecialCharacters === false &&
-    hasNumbers === false &&
-    hasLowerCase === false &&
-    hasUpperCase === false
+    hasnumbers === false &&
+    haslowerCase === false &&
+    hasupperCase === false
   ) {
     alert('Must select at least one character type');
     return null;
@@ -135,16 +137,16 @@ function getPasswordOptions() {
   var passwordOptions = {
     length: length,
     hasSpecialCharacters: hasSpecialCharacters,
-    hasNumbers: hasNumbers,
-    hasLowerCase: hasLowerCase,
-    hasUpperCase: hasUpperCase,
+    hasnumbers: hasnumbers,
+    haslowerCase: haslowerCase,
+    hasupperCase: hasupperCase,
   };
 
   return passwordOptions;
 }
 
 function getRandom(arr) {
-  var randIndex = Math.floor(Math.random() * arr.lenght);
+  var randIndex = Math.floor(Math.random() * arr.length);
   var randElement = arr[randIndex];
 
   return randElement;
@@ -160,40 +162,42 @@ function generatePassword() {
     possibleCharacters = possibleCharacters.concat(specialCharacters);
     guaranteedCharacters.push(getRandom(specialCharacters));
   }
-  if (options.hasNumbers) {
+
+  if (options.hasnumbers) {
     possibleCharacters = possibleCharacters.concat(numbers);
     guaranteedCharacters.push(getRandom(numbers));
   }
-  if (options.hasLowerCase) {
+
+  if (options.haslowerCase) {
     possibleCharacters = possibleCharacters.concat(lowerCase);
     guaranteedCharacters.push(getRandom(lowerCase));
   }
-  if (options.hasUpperCase) {
+
+  if (options.hasupperCase) {
     possibleCharacters = possibleCharacters.concat(upperCase);
     guaranteedCharacters.push(getRandom(upperCase));
   }
+
   for (var i = 0; i < options.length; i++) {
-    var possibleCharacters = getRandom(possibleCharacters);
-    result.push(possibleCharacters);
+    var possibleCharacter = getRandom(possibleCharacters);
+
+    result.push(possibleCharacter);
   }
-  for (var i = 0; i < guaranteedCharacters.lenght; i++) {
+
+  for (var i = 0; i < guaranteedCharacters.length; i++) {
     result[i] = guaranteedCharacters[i];
   }
 
   return result.join('');
 }
 
-// Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
+var generateBtn = document.querySelector('#generate');
 
-// Write password to the #password input
 function writePassword() {
   var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+  var passwordText = document.querySelector('#password');
 
   passwordText.value = password;
-
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener('click', writePassword);
