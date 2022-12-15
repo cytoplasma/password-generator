@@ -27,7 +27,7 @@
 
   ## Usage 
 
-  Press the button to begin the generation process. You will be prompted multiple times asking if you would like to include special characters, numbers, lowercase, uppercase, etc. Upon the last prompt, your password will be generated in the text box.
+  Press the button to begin the generation process. You will be prompted multiple times asking if you would like to include special characters, numbers, lowercase, uppercase, etc. Upon the last prompt, your password will be generated in the text box. Press [here](https://cytoplasma.github.io/password-generator/) to use the web application.
 
   ## License 
 
