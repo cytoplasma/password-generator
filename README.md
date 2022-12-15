@@ -22,12 +22,8 @@
 
 
   ## Installation 
-
-  To install necessary dependencies, run the following command: 
-
-  ```
-  npm i
-  ``` 
+  
+  N/A
 
   ## Usage 
 
@@ -42,12 +38,8 @@
   To contribute to this project, please contact the owner via the email below or open an issue in the repository. 
 
   ## Tests 
-
-  To run test, run the following command(s): 
-
-  ```
-  npm test
-  ``` 
+  
+  N/A
 
   ## Questions 
 
